@@ -240,6 +240,11 @@ export default {
         icon: "mdi-linkedin",
         url: "https://www.linkedin.com/in/jeugdhuis-den-uitvlucht-22593a165/",
       },
+            {
+        text: "GitHub",
+        icon: "mdi-github",
+        url: "https://github.com/DenUitvlucht/",
+      },
     ],
     shortcuts: [
       {
