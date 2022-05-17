@@ -2,65 +2,73 @@
   <!-- Content here -->
   <v-container fluid>
     <!-- Ons Bestuur Card -->
-    <v-card color="card" class="mx-auto" max-width="1000">
-      <v-card-text>
-        <p class="text-h6 mb-3 text-secondary">Ons bestuur</p>
+    <v-hover v-slot="{ isHovering, props }">
+      <v-card
+        color="card"
+        class="mx-auto"
+        max-width="1000"
+        :elevation="isHovering ? 12 : 2"
+        v-bind="props"
+      >
+        <v-card-text>
+          <p class="text-h6 mb-3 text-secondary">Ons bestuur</p>
 
-        <v-row dense>
-          <v-col v-for="card in cards" :key="card.title" :cols="card.flex">
-            <v-card color="card">
-              <v-img
-                :src="card.image"
-                class="white--text align-end"
-                gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                height="200px"
-                cover
-              >
-                <v-card-title
-                  class="text-white mb-0"
-                  v-text="card.title"
-                ></v-card-title>
-                <v-card-subtitle
-                  class="text-white mb-3"
-                  v-text="card.functie"
-                ></v-card-subtitle>
-              </v-img>
+          <v-row dense>
+            <v-col v-for="card in cards" :key="card.title" :cols="card.flex">
+              <v-card color="card">
+                <v-img
+                  :src="card.image"
+                  class="white--text align-end"
+                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                  height="200px"
+                  cover
+                >
+                  <v-card-title
+                    class="text-white mb-0"
+                    v-text="card.title"
+                  ></v-card-title>
+                  <v-card-subtitle
+                    class="text-white mb-3"
+                    v-text="card.functie"
+                  ></v-card-subtitle>
+                </v-img>
 
-              <v-card-actions class="bg-card">
-                <v-spacer></v-spacer>
-                <v-btn
-                  size="small"
-                  variant="text"
-                  icon="mdi-telegram"
-                  :href="card.telegram"
-                  target="_blank"
-                  class="text-secondary bg-buttonbg"
-                  color="buttontext"
-                ></v-btn>
-                <v-btn
-                  size="small"
-                  variant="text"
-                  icon="mdi-phone"
-                  :href="card.phone"
-                  class="text-secondary bg-buttonbg"
-                  color="buttontext"
-                ></v-btn>
+                <v-card-actions class="bg-card">
+                  <v-spacer></v-spacer>
+                  <v-btn
+                    size="small"
+                    variant="text"
+                    icon="mdi-telegram"
+                    :href="card.telegram"
+                    target="_blank"
+                    class="text-secondary bg-buttonbg"
+                    color="buttontext"
+                  ></v-btn>
+                  <v-btn
+                    size="small"
+                    variant="text"
+                    icon="mdi-phone"
+                    :href="card.phone"
+                    class="text-secondary bg-buttonbg"
+                    color="buttontext"
+                  ></v-btn>
 
-                <v-btn
-                  size="small"
-                  variant="text"
-                  icon="mdi-email"
-                  :href="card.email"
-                  class="text-secondary bg-buttonbg"
-                  color="buttontext"
-                ></v-btn>
-                <v-spacer></v-spacer>
-              </v-card-actions>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-card-text>
-    </v-card>
+                  <v-btn
+                    size="small"
+                    variant="text"
+                    icon="mdi-email"
+                    :href="card.email"
+                    class="text-secondary bg-buttonbg"
+                    color="buttontext"
+                  ></v-btn>
+                  <v-spacer></v-spacer>
+                </v-card-actions>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-card-text>
+      </v-card>
+    </v-hover>
   </v-container>
 </template>
 
