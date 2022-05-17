@@ -123,7 +123,7 @@ export default {
       },
       {
         title: "Tealc D'haene",
-        telegram: "https://t.me/PieterKoek",
+        telegram: "https://t.me/RapperDoevoe",
         phone: "tel:+32499720275",
         email: "mailto:tealc_dhaene@hotmail.com",
         functie: "Bestuurslid",
