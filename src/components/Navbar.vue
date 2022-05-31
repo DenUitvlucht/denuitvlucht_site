@@ -160,6 +160,12 @@ export default {
         url: "",
       },
       {
+        text: "Poll dj contest",
+        icon: "mdi-information",
+        routerdestination: "/poll",
+        url: "",
+      },
+      {
         text: "Word lid",
         icon: "mdi-account-heart",
         routerdestination: "",
