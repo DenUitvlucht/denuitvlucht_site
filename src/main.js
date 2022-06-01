@@ -8,6 +8,7 @@ import router from './router'
 const firebaseConfig = {
   apiKey: 'AIzaSyD11fqf_5cf68VGdf9c1XwAZ3HapqL9Y6g',
   authDomain: 'polldenuitvluchtdjcontest.firebaseapp.com',
+  databaseURL: 'https://polldenuitvluchtdjcontest-default-rtdb.europe-west1.firebasedatabase.app',
   projectId: 'polldenuitvluchtdjcontest',
   storageBucket: 'polldenuitvluchtdjcontest.appspot.com',
   messagingSenderId: '243388107304',
