@@ -28,22 +28,18 @@
         :href="item.url"
         target="_blank"
       >
-        <v-icon
-          class="ma-1"
-          end
-          :icon="item.icon"
-          :href="item.url"
-          target="_blank"
-        ></v-icon>
+ 
         <p class="hidden-sm-and-down">{{ item.text }}</p>
       </v-btn>
+
       <v-btn
         rounded="xl"
         class="ma-2 text-overline bg-buttonbg"
         :href="static[0].url"
         target="_blank"
       >
-        <v-icon class="ma-1" end icon="mdi-account-heart"></v-icon>
+
+        <v-spacer></v-spacer>
         <p class="hidden-sm-and-down">{{ static[0].text }}</p>
       </v-btn>
     </v-app-bar>
@@ -240,7 +236,7 @@ export default {
         icon: "mdi-linkedin",
         url: "https://www.linkedin.com/in/jeugdhuis-den-uitvlucht-22593a165/",
       },
-            {
+      {
         text: "GitHub",
         icon: "mdi-github",
         url: "https://github.com/DenUitvlucht/",
