@@ -10,10 +10,6 @@
                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" v-model="password">
-                </div>
-                <div class="mb-3">
                     <button type="submit" :disabled="isLoading" class="btn btn-primary" @click="register">Submit</button>
                 </div>
                 <div class="alert alert-danger" v-if="errMsg" role="alert">
@@ -26,50 +22,47 @@
 
 <script setup>
 
-    import { computed, ref, onMounted } from 'vue';
-    import { useRouter } from 'vue-router';
-    import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from 'firebase/auth'
-    const router = useRouter();
-    const auth = getAuth();
-    const isLoading = ref(false);
-    const email = ref('');
-    const password = ref('');
-    const errMsg = ref('')
-    const debug = process.env.NODE_ENV !== 'production'
-    if(!debug){
-        router.push('/login')
-    }
-    const register = async () => {
-         isLoading.value = true
-            await createUserWithEmailAndPassword(auth, email.value, password.value)
-                .then((user) => {
-                    if (user) {
-                        updateProfile(auth.currentUser, {
-                            displayName: '',
-                            photoURL: ''
-                        })
-                        sendEmailVerification(auth.currentUser)
-                        isLoading.value = false
-                        router.push('/verify')
-                    }
-                })
-                .catch((error) => {
-                    console.log(error);
-                    isLoading.value = false
-                     switch (error.code) {
-                        case 'auth/invalid-email':
-                            errMsg.value = 'The email address is badly formatted.'
-                            break
-                        case 'auth/email-already-exists':
-                            errMsg.value = 'The email address is already in use by another account.'
-                            break
-                        case 'auth/weak-password':
-                            errMsg.value = 'The password must be 6 characters long or more.'
-                            break
-                        default:
-                            errMsg.value = 'There was a problem creating the account.'
-                            break
-                    }
-                })
-    }
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { getAuth, sendSignInLinkToEmail } from 'firebase/auth'
+const router = useRouter()
+const auth = getAuth()
+const isLoading = ref(false)
+const email = ref('')
+const password = ref('')
+const errMsg = ref('')
+const debug = process.env.NODE_ENV !== 'production'
+
+const actionCodeSettings = {
+  // URL you want to redirect back to. The domain (www.example.com) for this
+  // URL must be in the authorized domains list in the Firebase Console.
+  url: 'http://localhost:4000/poll',
+  // This must be true.
+  handleCodeInApp: true,
+}
+
+if (!debug) router.push('/login')
+
+const register = async() => {
+  isLoading.value = true
+  await sendSignInLinkToEmail(auth, email.value, actionCodeSettings)
+    .then((user) => {
+      window.localStorage.setItem('emailForSignIn', email.value)
+      console.log(email.value)
+    })
+    .catch((error) => {
+      isLoading.value = false
+      switch (error.code) {
+        case 'auth/invalid-email':
+          errMsg.value = 'The email address is badly formatted.'
+          break
+        case 'auth/email-already-exists':
+          errMsg.value = 'The email address is already in use by another account.'
+          break
+        default:
+          errMsg.value = 'There was a problem creating the account.'
+          break
+      }
+    })
+}
 </script>
