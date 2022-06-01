@@ -39,7 +39,6 @@ if (isSignInWithEmailLink(auth, window.location.href)) {
   // Get the email if available. This should be available if the user completes
   // the flow on the same device where they started it.
   let email = window.localStorage.getItem('emailForSignIn')
-  console.log(email)
   if (!email) {
     // User opened the link on a different device. To prevent session fixation
     // attacks, ask the user to provide the associated email again. For example:
@@ -48,7 +47,6 @@ if (isSignInWithEmailLink(auth, window.location.href)) {
   // The client SDK will parse the code from the link for you.
   signInWithEmailLink(auth, email, window.location.href)
     .then((result) => {
-      console.log(result.user)
       // Clear email from storage.
       window.localStorage.removeItem('emailForSignIn')
       // You can access the new user via result.user

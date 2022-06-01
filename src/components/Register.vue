@@ -48,7 +48,6 @@ const register = async() => {
   await sendSignInLinkToEmail(auth, email.value, actionCodeSettings)
     .then((user) => {
       window.localStorage.setItem('emailForSignIn', email.value)
-      console.log(email.value)
     })
     .catch((error) => {
       isLoading.value = false
