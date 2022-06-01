@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.18.2",
-    "@mdi/font": "5.9.55",
+    "@mdi/font": "^5.9.55",
     "@vue/compiler-sfc": "^3.2.36",
     "body-scroll-lock": "^4.0.0-beta.0",
     "roboto-fontface": "*",
