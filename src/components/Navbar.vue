@@ -248,9 +248,9 @@ export default {
     ],
     shortcuts: [
       {
-        text: "Rockvlucht X",
-        icon: "mdi-guitar-electric",
-        url: "https://rockvlucht.denuitvlucht.com",
+        text: "Jongere van het jaar",
+        icon: "mdi-trophy-variant",
+        url: "https://docs.google.com/forms/d/e/1FAIpQLSeI3_jvJJFMWeIEFbX328qSVw-yqWbSySGV2A8wCOS7cERd4g/viewform",
       },
       {
         text: "Mail Ons",

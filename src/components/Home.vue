@@ -163,12 +163,6 @@ export default {
       theme,
       alerts: [
         {
-          titel: "ROCKVLUCHT X",
-          text: "Ons rock/metal festival ROCKVLUCHT is terug van weggeweest!",
-          website: "https://rockvlucht.denuitvlucht.com",
-          status: true,
-        },
-        {
           titel: "Kleine Sanders presents DANST!",
           text: "Kleine sanders heeft van de Corona pandemie gebruik gemaakt en is helemaal terug met een nieuw album!",
           website: "https://danst.denuitvlucht.com",
@@ -186,13 +180,7 @@ export default {
       fotos: [
         {
           src: "/images/events/kleinesanders.png",
-        },
-        {
-          src: "/images/events/rockvluchtvrijdag.png",
-        },
-        {
-          src: "/images/events/rockvluchtzaterdag.png",
-        },
+        }
       ],
       openingsuren: [
         { text: "Woensdag", text2: "17:00 - 02:00" },
@@ -201,16 +189,6 @@ export default {
         { text: "Zondag", text2: "16:00 - 20:00" },
       ],
       kalender: [
-        {
-          text: "ROCKVLUCHT X - Vrijdag",
-          text2: "20/05/2022",
-          icon: "mdi-guitar-electric",
-        },
-        {
-          text: "ROCKVLUCHT X - Zaterdag",
-          text2: "21/05/2022",
-          icon: "mdi-guitar-electric",
-        },
         {
           text: "Kleine Sanders presents DANST!",
           text2: "28/05/2022",

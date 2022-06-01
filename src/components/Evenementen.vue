@@ -77,17 +77,6 @@ export default {
   data: () => ({
     cards: [
       {
-        title: "ROCKVLUCHT X",
-        datum: "2O en 21 Mei 2022",
-        image: "/images/events/rockvluchtalgemeen.png",
-        flex: 12,
-        tickets: true,
-        inschrijven: false,
-        infolink: "https://rockvlucht.denuitvlucht.com",
-        inschrijvenlink: "",
-        ticketlink: "https://rockvlucht.denuitvlucht.com",
-      },
-      {
         title: "Kleine Sanders presents DANST!",
         datum: "28 Mei 2022",
         image: "/images/events/kleinesanders.png",
