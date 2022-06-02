@@ -95,6 +95,26 @@ const routes = [
 
   },
   {
+    path: '/poll',
+    name: 'poll',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: function () {
+      return import(/* webpackChunkName: "about" */ '../views/PollView.vue')
+    },
+  },
+  {
+    path: '/djcontest',
+    name: 'djcontest',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: function () {
+      return import(/* webpackChunkName: "about" */ '../views/RegisterView.vue')
+    },
+  },
+  {
     path: '/:pathMatch(.*)',
     name: 'oeps',
     // route level code-splitting

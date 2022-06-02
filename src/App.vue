@@ -12,6 +12,7 @@ import Navbar from "./components/Navbar.vue";
 import Home from "./components/Home.vue";
 import { theme } from "./composables/dark.ts";
 
+
 export default {
   setup() {
     return {

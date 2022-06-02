@@ -13,6 +13,7 @@
     "@mdi/font": "^5.9.55",
     "@vue/compiler-sfc": "^3.2.36",
     "body-scroll-lock": "^4.0.0-beta.0",
+    "firebase": "^9.8.2",
     "roboto-fontface": "*",
     "vue": "^3.2.36",
     "vue-router": "^4.0.15",
