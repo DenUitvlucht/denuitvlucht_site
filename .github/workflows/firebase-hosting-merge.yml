@@ -9,8 +9,7 @@ name: Deploy to Firebase Hosting on merge
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
-    steps:
-      - env: | 
+    env: | 
           VITE_FB_API_KEY: ${{ secrets.VITE_FB_API_KEY }}
           VITE_FB_AUTH_DOMAIN: ${{ secrets.VITE_FB_AUTH_DOMAIN }}
           VITE_FB_DB_URL: ${{ secrets.VITE_FB_DB_URL }}
@@ -19,6 +18,7 @@ jobs:
           VITE_FB_MESSAGING_SENDER_ID: ${{ secrets.VITE_FB_MESSAGING_SENDER_ID }}
           VITE_FB_APP_ID: ${{ secrets.VITE_FB_APP_ID }}
           VITE_MEASUREMENT_ID: ${{ secrets.VITE_MEASUREMENT_ID }}
+    steps:
       - uses: actions/checkout@v2
       - run: npm install
       - run: npm -g install vite
