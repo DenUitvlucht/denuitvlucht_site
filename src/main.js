@@ -14,6 +14,9 @@ const VITE_FB_MESSAGING_SENDER_ID = import.meta.env.VITE_FB_MESSAGING_SENDER_ID
 const VITE_FB_APP_ID = import.meta.env.VITE_FB_APP_ID
 const VITE_MEASUREMENT_ID = import.meta.env.VITE_MEASUREMENT_ID
 
+console.log(VITE_FB_PROJECT_ID)
+
+
 const firebaseConfig = {
   apiKey: VITE_FB_API_KEY,
   authDomain: VITE_FB_AUTH_DOMAIN,
