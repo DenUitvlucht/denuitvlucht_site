@@ -250,6 +250,7 @@ export default {
     };
   },
   data: () => ({
+    selectedOptionId: null,
     verified: verified,
     registered: registered,
     voted: voted,
