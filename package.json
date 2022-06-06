@@ -27,7 +27,7 @@
     "@vue/cli-plugin-router": "~5.0.4",
     "@vue/cli-service": "^5.0.4",
     "@vuetify/vite-plugin": "^1.0.0-alpha.11",
-    "firebase-tools": "^11.0.1",
+    "firebase-tools": "^10.1.1",
     "sass": "^1.52.1",
     "sass-loader": "^10.2.1",
     "vite": "^2.9.9",

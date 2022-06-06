@@ -24,7 +24,7 @@
           color="alert"
           variant="outlined"
         >
-          TICKETS
+          MEER INFO
         </v-btn>
       </v-alert>
     </div>
@@ -163,9 +163,9 @@ export default {
       theme,
       alerts: [
         {
-          titel: "Kleine Sanders presents DANST!",
-          text: "Kleine sanders heeft van de Corona pandemie gebruik gemaakt en is helemaal terug met een nieuw album!",
-          website: "https://danst.denuitvlucht.com",
+          titel: "AFTERSCHOOLYEAR",
+          text: "De laatste vrijdag van het schooljaar, dat moet natuurlijk gevierd worden! DJ's, BBQ en meer! ",
+          website: "https://www.facebook.com/events/768946097475328",
           status: true,
         },
       ],
@@ -179,7 +179,7 @@ export default {
       ],
       fotos: [
         {
-          src: "/images/events/kleinesanders.png",
+          src: "/images/events/afterschoolyear.png",
         }
       ],
       openingsuren: [
@@ -190,9 +190,9 @@ export default {
       ],
       kalender: [
         {
-          text: "Kleine Sanders presents DANST!",
-          text2: "28/05/2022",
-          icon: "mdi-microphone-variant",
+          text: "AFTERSCHOOLYEAR",
+          text2: "24/06/2022",
+          icon: "mdi-party-popper",
         },
       ],
     };

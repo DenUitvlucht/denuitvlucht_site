@@ -44,7 +44,7 @@
                     Meer info
                   </v-btn>
                   <v-btn
-                    v-if="card.tickets"
+                    v-if="card.ticketlink"
                     class="text-secondary bg-buttonbg"
                     color="buttontext"
                     :href="card.ticketlink"
@@ -77,15 +77,15 @@ export default {
   data: () => ({
     cards: [
       {
-        title: "Kleine Sanders presents DANST!",
-        datum: "28 Mei 2022",
-        image: "/images/events/kleinesanders.png",
+        title: "AFTERSCHOOLYEAR",
+        datum: "24 Juni 2022",
+        image: "/images/events/afterschoolyear.png",
         flex: 12,
         tickets: true,
         inschrijven: false,
-        infolink: "https://danst.denuitvlucht.com",
+        infolink: "https://www.facebook.com/events/768946097475328",
         inschrijvenlink: "",
-        ticketlink: "https://danst.denuitvlucht.com",
+        ticketlink: "",
       },
     ],
   }),
