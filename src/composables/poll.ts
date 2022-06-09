@@ -24,6 +24,19 @@ export const defaultValues = () => {
 }
 
 
+export const getEmail = () => {
+
+    return localStorage.getItem('emailForSignIn')
+
+}
+
+export const getLastVote = () => {
+
+    return localStorage.getItem('lastVote')
+
+}
+
+
 export const verify = () => {
 
     verified.value = 'true'
@@ -31,18 +44,19 @@ export const verify = () => {
 
 }
 
-export const vote = () => {
+export const vote = (voteValue) => {
 
     voted.value = 'true'
-
-    console.log(voted)
-
     window.localStorage.setItem('voted', 'true')
+    window.localStorage.setItem('lastVote', voteValue)
 }
 
 
 export let verified = ref(defaultValues()[0])
 export let registered = ref(defaultValues()[1])
 export let voted = ref(defaultValues()[2])
+export let emailToShow = getEmail()
+export let lastVote = getLastVote()
+
 
 

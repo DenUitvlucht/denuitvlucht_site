@@ -44,11 +44,12 @@
               </template>
             </v-checkbox>
             <v-btn
-              @click="(registered = 'true'), register()"
+              @click="(emailToShow = email), (registered = 'true'), register()"
               :disabled="!valid"
               color="buttontext"
               class="bg-buttonbg"
             >
+              <v-icon size="20" class="" start icon="mdi-email"></v-icon>
               Stuur verificatiemail
             </v-btn>
           </v-form>
@@ -69,7 +70,18 @@
             Verifieer jezelf en stem voor je favoriete DJ!
           </p>
           <div class="text-secondary">
-            <div class="text-secondary">Check je e-mail inbox!</div>
+            <div class="text-secondary">
+              Er is een e-mail verzonden naar:
+              <span class="font-weight-black">{{ emailToShow }}</span
+              >.
+            </div>
+            <br />
+            <div class="text-secondary">
+              Je krijgt van ons een e-mail met daarin een verificatielink
+            </div>
+            <div class="text-secondary">
+              Klink op de link en krijg toegang tot de stemming!
+            </div>
             <br />
             <v-chip class="ma-2" color="error" variant="outlined">
               <v-icon start icon="mdi-alert-circle"></v-icon>
@@ -86,26 +98,28 @@
           <br />
         </v-card-text>
         <v-card-text v-if="verified === 'true'" :key="test">
-          <p class="text-h6 mb-3 text-secondary">
-            Verifieer jezelf en stem voor je favoriete DJ!
-          </p>
+          <p class="text-h6 mb-3 text-secondary">Stem voor je favoriete DJ!</p>
           <div class="text-secondary">
-            <v-chip class="ma-2" color="success" variant="outlined">
+            <v-chip class="mb-3" color="success" variant="outlined">
               <v-icon start icon="mdi-check-circle"></v-icon>
-              <p class="mr-2">Geverifieerd</p>
+              <p class="mr-2">Uw account is <span>geverifieerd!</span></p>
             </v-chip>
+            <br />
             <v-chip
               v-if="voted === 'true'"
-              class="ma-2"
+              class="mb-2"
               color="success"
               variant="outlined"
             >
-              <v-icon start icon="mdi-check-circle"></v-icon>
-              <p class="mr-2">Gestemd</p>
+              <v-icon start icon="mdi-vote"></v-icon>
+              <p class="mr-2">Laatst gestemd op: <span class="font-weight-black">{{ lastVote }}</span></p>
             </v-chip>
-            <br />
-            <div class="text-secondary">Breng hieronder je stem uit!</div>
+            
+            <v-divider class="mb-3 mt-3"></v-divider>
+            <div class="text-secondary">Tijd om je stem uit te brengen!</div>
+            <div class="text-secondary"><span class="font-weight-black">Opnieuw stemmen is toegelaten maar enkel je laatste stem telt mee</span></div>
           </div>
+          <v-divider class="mb-3 mt-3"></v-divider>
           <v-radio-group v-model="selectedOptionId">
             <v-radio label="Dj body warmer" value="Dj Taart" />
             <v-radio label="Dj viking" value="Dj Viking" />
@@ -113,7 +127,7 @@
           </v-radio-group>
           <div class="mb-3">
             <v-btn
-              @click="safeVote(selectedOptionId)"
+              @click="safeVote(selectedOptionId), (dialog = true), lastVote=selectedOptionId"
               color="buttontext"
               class="bg-buttonbg"
             >
@@ -122,6 +136,20 @@
           </div>
           <br />
         </v-card-text>
+        <v-dialog v-model="dialog">
+          <v-card>
+            <v-card-text> 
+              <div class="text-secondary">Bedankt om te stemmen op:</div>
+              <div class="text-secondary"><span class="font-weight-black">{{ selectedOptionId }}</span></div>
+            </v-card-text>
+            
+            <v-card-actions>
+              <v-btn color="primary" block @click="dialog = false"
+                >Sluiten</v-btn
+              >
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
       </v-card>
     </v-hover>
   </v-container>
@@ -150,6 +178,8 @@ import {
   defaultValues,
   verify,
   vote,
+  emailToShow,
+  lastVote
 } from "../composables/poll.ts";
 
 export default {
@@ -164,7 +194,7 @@ export default {
     const errMsg = ref("");
     const actionCodeSettings = {
       //moet nog aangepast worden!
-      url: "https://denuitvlucht.com/djcontest",
+      url: "http://localhost:4000/djcontest",
       handleCodeInApp: true,
     };
 
@@ -190,14 +220,13 @@ export default {
     }
 
     const safeVote = (voteValue) => {
-      console.log(voteValue);
 
       if (voteValue) {
         set(firebaseref(database, "users/" + auth.currentUser.uid), {
           email: auth.currentUser.email,
           vote: voteValue,
         });
-        vote();
+        vote(voteValue);
       } else {
         alert("selecteer een favoriete dj!");
       }
@@ -247,9 +276,13 @@ export default {
       registered,
       verified,
       voted,
+      
     };
   },
   data: () => ({
+    dialog: false,
+    lastVote: lastVote,
+    emailToShow: emailToShow,
     selectedOptionId: null,
     verified: verified,
     registered: registered,
