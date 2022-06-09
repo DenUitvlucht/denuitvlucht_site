@@ -13,6 +13,13 @@
           <p class="text-h6 mb-3 text-secondary">
             Verifieer jezelf en stem voor je favoriete DJ!
           </p>
+                <v-img
+            src="images/events/djcontest.png"
+            class="white--text align-end mb-5"
+           
+            cover
+            
+          ></v-img>
           <div class="text-secondary">
             Vul hieronder uw e-mailadres in. Binnen enkele seconden ontvang je
             een verificatiemail en kan je beginnen met stemmen!
@@ -87,15 +94,22 @@
         :elevation="isHovering ? 12 : 2"
         v-bind="props"
       >
+        
         <v-card-text v-if="verified === 'false'">
           <p class="text-h6 mb-3 text-secondary">
             Verifieer jezelf en stem voor je favoriete DJ!
           </p>
+          
+          
           <div class="text-secondary">
             <div class="text-secondary">
               Er is een verificatie e-mail verzonden naar:
               <span class="font-weight-black">{{ emailToShow }}</span
               >.
+            </div>
+            <div class="text-secondary">
+              <span class="font-weight-black">Check zeker je spamfolder!</span
+              >
             </div>
             <br />
             <div class="text-secondary">
@@ -174,11 +188,7 @@
             >
               STEM
             </v-btn>
-            <v-btn
-              @click="resetAll()"
-              color="buttontext"
-              class="bg-buttonbg"
-            >
+            <v-btn @click="resetAll()" color="buttontext" class="bg-buttonbg">
               AFMELDEN
             </v-btn>
           </div>
@@ -232,7 +242,7 @@ import {
   emailToShow,
   lastVote,
   resetRegister,
-  resetAll
+  resetAll,
 } from "../composables/poll.ts";
 
 export default {
@@ -337,7 +347,7 @@ export default {
       verified,
       voted,
       resetRegister,
-      resetAll
+      resetAll,
     };
   },
   data: () => ({
