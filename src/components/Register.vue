@@ -1,4 +1,4 @@
-<template>
+<template :key="page">
   <v-container fluid>
     <v-hover v-slot="{ isHovering, props }">
       <v-card
@@ -44,7 +44,12 @@
               </template>
             </v-checkbox>
             <v-btn
-              @click="(emailToShow = email), (registered = 'true'), register()"
+              @click="
+                (emailToShow = email),
+                  (registered = 'true'),
+                  register(),
+                  (dialog2 = true)
+              "
               :disabled="!valid"
               color="buttontext"
               class="bg-buttonbg"
@@ -57,6 +62,23 @@
       </v-card>
     </v-hover>
     <v-hover v-slot="{ isHovering, props }">
+      <v-dialog v-model="dialog2">
+        <v-card>
+          <v-card-text>
+            <div class="text-secondary">
+              Er is een verificatie e-mail verzonden naar:
+              <span class="font-weight-black">{{ emailToShow }}</span
+              >.
+            </div>
+          </v-card-text>
+
+          <v-card-actions>
+            <v-btn color="primary" block @click="dialog2 = false"
+              >Sluiten</v-btn
+            >
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
       <v-card
         v-if="registered === 'true'"
         color="card"
@@ -71,7 +93,7 @@
           </p>
           <div class="text-secondary">
             <div class="text-secondary">
-              Er is een e-mail verzonden naar:
+              Er is een verificatie e-mail verzonden naar:
               <span class="font-weight-black">{{ emailToShow }}</span
               >.
             </div>
@@ -80,7 +102,7 @@
               Je krijgt van ons een e-mail met daarin een verificatielink
             </div>
             <div class="text-secondary">
-              Klink op de link en krijg toegang tot de stemming!
+              Klik op de link en krijg toegang tot de stemming!
             </div>
             <br />
             <v-chip class="ma-2" color="error" variant="outlined">
@@ -112,22 +134,34 @@
               variant="outlined"
             >
               <v-icon start icon="mdi-vote"></v-icon>
-              <p class="mr-2">Laatst gestemd op: <span class="font-weight-black">{{ lastVote }}</span></p>
+              <p class="mr-2">
+                Laatst gestemd op:
+                <span class="font-weight-black">{{ lastVote }}</span>
+              </p>
             </v-chip>
-            
+
             <v-divider class="mb-3 mt-3"></v-divider>
             <div class="text-secondary">Tijd om je stem uit te brengen!</div>
-            <div class="text-secondary"><span class="font-weight-black">Opnieuw stemmen is toegelaten maar enkel je laatste stem telt mee</span></div>
+            <div class="text-secondary">
+              <span class="font-weight-black"
+                >Opnieuw stemmen is toegelaten maar enkel je laatste stem telt
+                mee</span
+              >
+            </div>
           </div>
           <v-divider class="mb-3 mt-3"></v-divider>
           <v-radio-group v-model="selectedOptionId">
-            <v-radio label="Dj body warmer" value="Dj Taart" />
-            <v-radio label="Dj viking" value="Dj Viking" />
-            <v-radio label="Dj verloren zoon" value="Dj De Verloren Zoon" />
+            <v-radio label="DJ body warmer" value="DJ Taart" />
+            <v-radio label="DJ Viking" value="DJ Viking" />
+            <v-radio label="DJ verloren zoon" value="DJ De Verloren Zoon" />
           </v-radio-group>
           <div class="mb-3">
             <v-btn
-              @click="safeVote(selectedOptionId), (dialog = true), lastVote=selectedOptionId"
+              @click="
+                safeVote(selectedOptionId),
+                  (dialog = true),
+                  (lastVote = selectedOptionId)
+              "
               color="buttontext"
               class="bg-buttonbg"
             >
@@ -138,11 +172,13 @@
         </v-card-text>
         <v-dialog v-model="dialog">
           <v-card>
-            <v-card-text> 
+            <v-card-text>
               <div class="text-secondary">Bedankt om te stemmen op:</div>
-              <div class="text-secondary"><span class="font-weight-black">{{ selectedOptionId }}</span></div>
+              <div class="text-secondary">
+                <span class="font-weight-black">{{ selectedOptionId }}</span>
+              </div>
             </v-card-text>
-            
+
             <v-card-actions>
               <v-btn color="primary" block @click="dialog = false"
                 >Sluiten</v-btn
@@ -179,7 +215,7 @@ import {
   verify,
   vote,
   emailToShow,
-  lastVote
+  lastVote,
 } from "../composables/poll.ts";
 
 export default {
@@ -194,7 +230,7 @@ export default {
     const errMsg = ref("");
     const actionCodeSettings = {
       //moet nog aangepast worden!
-      url: "https://denuitvlucht.com/djcontest",
+      url: "http://localhost:4000/djcontest",
       handleCodeInApp: true,
     };
 
@@ -208,19 +244,27 @@ export default {
     if (isSignInWithEmailLink(auth, window.location.href)) {
       let email = window.localStorage.getItem("emailForSignIn");
       if (!email) {
-        email = window.prompt("Please provide your email for confirmation");
+        email = window.prompt(
+          "Oeps, je opent deze pagina waarschijnlijk in de verkeerde browser! Geen probleem, vul hieronder je e-mailadres en we sturen je direct naar de stempagina."
+        );
+        window.localStorage.setItem("emailForSignIn", email);
+        window.localStorage.setItem("registered", true);
+        router.go();
+      } else {
+        console.log("goed");
+        signInWithEmailLink(auth, email, window.location.href)
+          .then((result) => {
+            //window.localStorage.removeItem('emailForSignIn')
+            console.log("bruh");
+            verify();
+            test += 1;
+          })
+          .catch();
+          router.replace('/djcontest')
       }
-      signInWithEmailLink(auth, email, window.location.href)
-        .then((result) => {
-          //window.localStorage.removeItem('emailForSignIn')
-          verify();
-          this.test += 1;
-        })
-        .catch();
     }
 
     const safeVote = (voteValue) => {
-
       if (voteValue) {
         set(firebaseref(database, "users/" + auth.currentUser.uid), {
           email: auth.currentUser.email,
@@ -276,10 +320,12 @@ export default {
       registered,
       verified,
       voted,
-      
     };
   },
   data: () => ({
+    dialog2: false,
+    test: 0,
+    page: 0,
     dialog: false,
     lastVote: lastVote,
     emailToShow: emailToShow,
