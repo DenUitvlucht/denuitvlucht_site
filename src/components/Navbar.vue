@@ -28,8 +28,9 @@
         :href="item.url"
         target="_blank"
       >
- 
-        <p class="hidden-sm-and-down">{{ item.text }}</p>
+        <v-icon class="ma-0" start :icon="item.icon"></v-icon>
+
+        <a class="ml-2 hidden-sm-and-down">{{ item.text }}</a>
       </v-btn>
 
       <v-btn
@@ -38,9 +39,8 @@
         :href="static[0].url"
         target="_blank"
       >
-
-        <v-spacer></v-spacer>
-        <p class="hidden-sm-and-down">{{ static[0].text }}</p>
+        <v-icon class="ma-0" start :icon="static[0].icon"></v-icon>
+        <a class="ml-2 hidden-sm-and-down">{{ static[0].text }}</a>
       </v-btn>
     </v-app-bar>
 

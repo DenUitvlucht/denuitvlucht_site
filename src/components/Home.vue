@@ -200,5 +200,11 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
+.v-btn.v-btn--elevated.v-btn--icon.v-theme--light.v-btn--density-default.v-btn--size-default.v-btn--variant-contained {
+  background-color: white;
+}
+.v-btn.v-btn--elevated.v-btn--icon.v-theme--dark.v-btn--density-default.v-btn--size-default.v-btn--variant-contained {
+  background-color: #2e3030;
+}
 </style>
