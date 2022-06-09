@@ -158,7 +158,7 @@
           </div>
           <v-divider class="mb-3 mt-3"></v-divider>
           <v-radio-group v-model="selectedOptionId">
-            <v-radio label="DJ body warmer" value="DJ Taart" />
+            <v-radio label="DJ Taart" value="DJ Taart" />
             <v-radio label="DJ Viking" value="DJ Viking" />
             <v-radio label="DJ verloren zoon" value="DJ De Verloren Zoon" />
           </v-radio-group>
