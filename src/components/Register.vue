@@ -63,7 +63,7 @@
     </v-hover>
     <v-hover v-slot="{ isHovering, props }">
       <v-dialog v-model="dialog2">
-        <v-card>
+        <v-card color="card">
           <v-card-text>
             <div class="text-secondary">
               Er is een verificatie e-mail verzonden naar:
@@ -73,7 +73,7 @@
           </v-card-text>
 
           <v-card-actions>
-            <v-btn color="primary" block @click="dialog2 = false"
+            <v-btn color="buttontext" block @click="dialog2 = false"
               >Sluiten</v-btn
             >
           </v-card-actions>
@@ -107,7 +107,7 @@
             <br />
             <v-chip class="ma-2" color="error" variant="outlined">
               <v-icon start icon="mdi-alert-circle"></v-icon>
-              <p class="mr-2">Wachten op verificatie...</p>
+              <p class="mr-2 font-weight-black">Wachten op verificatie...</p>
 
               <v-progress-circular
                 :size="20"
@@ -118,6 +118,13 @@
             </v-chip>
           </div>
           <br />
+          <v-btn
+            @click="resetRegister(), (email = ''), (checkbox = false)"
+            color="buttontext"
+            class="bg-buttonbg"
+          >
+            TERUG
+          </v-btn>
         </v-card-text>
         <v-card-text v-if="verified === 'true'" :key="test">
           <p class="text-h6 mb-3 text-secondary">Stem voor je favoriete DJ!</p>
@@ -163,30 +170,38 @@
                   (lastVote = selectedOptionId)
               "
               color="buttontext"
-              class="bg-buttonbg"
+              class="bg-buttonbg mr-3"
             >
               STEM
             </v-btn>
+            <v-btn
+              @click="resetAll()"
+              color="buttontext"
+              class="bg-buttonbg"
+            >
+              AFMELDEN
+            </v-btn>
           </div>
+
           <br />
         </v-card-text>
-        <v-dialog v-model="dialog">
-          <v-card>
-            <v-card-text>
-              <div class="text-secondary">Bedankt om te stemmen op:</div>
-              <div class="text-secondary">
-                <span class="font-weight-black">{{ selectedOptionId }}</span>
-              </div>
-            </v-card-text>
-
-            <v-card-actions>
-              <v-btn color="primary" block @click="dialog = false"
-                >Sluiten</v-btn
-              >
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
       </v-card>
+      <v-dialog v-model="dialog">
+        <v-card color="card">
+          <v-card-text>
+            <div class="text-secondary">Bedankt om te stemmen op:</div>
+            <div class="text-secondary">
+              <span class="font-weight-black">{{ selectedOptionId }}</span>
+            </div>
+          </v-card-text>
+
+          <v-card-actions>
+            <v-btn color="buttontext" block @click="dialog = false"
+              >Sluiten</v-btn
+            >
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
     </v-hover>
   </v-container>
 </template>
@@ -216,6 +231,8 @@ import {
   vote,
   emailToShow,
   lastVote,
+  resetRegister,
+  resetAll
 } from "../composables/poll.ts";
 
 export default {
@@ -260,7 +277,7 @@ export default {
             test += 1;
           })
           .catch();
-          router.replace('/djcontest')
+        router.replace("/djcontest");
       }
     }
 
@@ -277,7 +294,6 @@ export default {
     };
 
     const register = async () => {
-      console.log("taart");
       isLoading.value = true;
       await sendSignInLinkToEmail(auth, email.value, actionCodeSettings)
         .then((user) => {
@@ -320,6 +336,8 @@ export default {
       registered,
       verified,
       voted,
+      resetRegister,
+      resetAll
     };
   },
   data: () => ({

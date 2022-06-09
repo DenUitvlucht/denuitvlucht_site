@@ -51,6 +51,26 @@ export const vote = (voteValue) => {
     window.localStorage.setItem('lastVote', voteValue)
 }
 
+export const resetRegister = () => {
+
+    window.localStorage.removeItem("emailForSignIn");
+    window.localStorage.setItem("registered", 'false');
+    registered.value = 'false'
+}
+
+export const resetAll = () => {
+
+    window.localStorage.removeItem("emailForSignIn");
+    window.localStorage.removeItem("registered");
+    window.localStorage.removeItem("verified");
+    window.localStorage.removeItem("voted");
+    window.localStorage.removeItem("lastVote");
+    voted.value = 'false'
+    verified.value = 'false'
+    registered.value = 'false'
+    
+}
+
 
 export let verified = ref(defaultValues()[0])
 export let registered = ref(defaultValues()[1])
