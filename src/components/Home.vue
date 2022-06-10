@@ -24,6 +24,7 @@
           color="alert"
           variant="outlined"
         >
+        <v-icon start :icon="item.icon"></v-icon>
           MEER INFO
         </v-btn>
       </v-alert>
@@ -75,7 +76,7 @@
               class="bg-buttonbg"
               @click="$router.push('/evenementen')"
             >
-              Meer info
+              Alle activiteiten
             </v-btn>
           </v-card-actions>
         </v-list>
@@ -168,12 +169,14 @@ export default {
           text: "Schrijf je nu in en maak kans om te draaien op Waregem Koerse 2022!",
           website: "https://www.facebook.com/events/337703575096356",
           status: true,
+          icon: 'mdi-facebook'
         },
         {
           titel: "AFTERSCHOOLYEAR",
           text: "De laatste vrijdag van het schooljaar, dat moet natuurlijk gevierd worden! DJ's, BBQ en meer! ",
           website: "https://www.facebook.com/events/768946097475328",
           status: true,
+          icon: 'mdi-facebook'
         },
       ],
       alerts2: [
