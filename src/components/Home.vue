@@ -37,6 +37,7 @@
           height="auto"
           width="auto"
           hide-delimiter-background
+          hide-delimiters
           show-arrows="hover"
           style="max-width: 800px"
         >
@@ -163,6 +164,12 @@ export default {
       theme,
       alerts: [
         {
+          titel: "DJ CONTEST - WAREGEM KOERSE",
+          text: "Schrijf je nu in en maak kans om te draaien op Waregem Koerse 2022!",
+          website: "https://www.facebook.com/events/337703575096356",
+          status: true,
+        },
+        {
           titel: "AFTERSCHOOLYEAR",
           text: "De laatste vrijdag van het schooljaar, dat moet natuurlijk gevierd worden! DJ's, BBQ en meer! ",
           website: "https://www.facebook.com/events/768946097475328",
@@ -180,7 +187,10 @@ export default {
       fotos: [
         {
           src: "/images/events/afterschoolyear.png",
-        }
+        },
+        {
+          src: "/images/events/djcontest.png",
+        },
       ],
       openingsuren: [
         { text: "Woensdag", text2: "17:00 - 02:00" },
@@ -193,6 +203,11 @@ export default {
           text: "AFTERSCHOOLYEAR",
           text2: "24/06/2022",
           icon: "mdi-party-popper",
+        },
+        {
+          text: "DJ CONTEST - WAREGEM KOERSE",
+          text2: "01/07/2022, 15/07/2022 en 22/07/2022",
+          icon: "mdi-disc",
         },
       ],
     };
