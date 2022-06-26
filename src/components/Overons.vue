@@ -24,12 +24,12 @@
           </div>
           <br />
           <div class="text-secondary">
-            Op dit moment bestaat ons bestuur uit 6 machtige mensen: Jordy,
-            Robin, Ferre, Daan, Wout en Tealc.
+            Op dit moment bestaat ons bestuur uit 8 machtige mensen: Jordy,
+            Robin, Ferre, Daan, Wout, Tealc, Rune en Xander.
           </div>
           <br />
           <div class="text-secondary">
-            Met 6 het hele schip op koers houden zou onbegonnen werk zijn,
+            Met 8 het hele schip op koers houden zou onbegonnen werk zijn,
             vandaar dat wij ook rekenen op onze trouwe en talrijke medewerkers
             en sympathisanten.
           </div>

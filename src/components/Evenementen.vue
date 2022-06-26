@@ -77,17 +77,6 @@ export default {
   data: () => ({
     cards: [
       {
-        title: "AFTERSCHOOLYEAR",
-        datum: "24/06/2022",
-        image: "/images/events/afterschoolyear.png",
-        flex: 12,
-        tickets: true,
-        inschrijven: false,
-        infolink: "https://www.facebook.com/events/768946097475328",
-        inschrijvenlink: "",
-        ticketlink: "",
-      },
-      {
         title: "DJ CONTEST - WAREGEM KOERSE",
         datum: "01/07/2022, 15/07/2022 en 22/07/2022",
         image: "/images/events/djcontest.png",

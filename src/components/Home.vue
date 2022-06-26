@@ -171,13 +171,6 @@ export default {
           status: true,
           icon: 'mdi-facebook'
         },
-        {
-          titel: "AFTERSCHOOLYEAR",
-          text: "De laatste vrijdag van het schooljaar, dat moet natuurlijk gevierd worden! DJ's, BBQ en meer! ",
-          website: "https://www.facebook.com/events/768946097475328",
-          status: true,
-          icon: 'mdi-facebook'
-        },
       ],
       alerts2: [
         {
@@ -189,9 +182,6 @@ export default {
       ],
       fotos: [
         {
-          src: "/images/events/afterschoolyear.png",
-        },
-        {
           src: "/images/events/djcontest.png",
         },
       ],
@@ -202,11 +192,6 @@ export default {
         { text: "Zondag", text2: "16:00 - 20:00" },
       ],
       kalender: [
-        {
-          text: "AFTERSCHOOLYEAR",
-          text2: "24/06/2022",
-          icon: "mdi-party-popper",
-        },
         {
           text: "DJ CONTEST - WAREGEM KOERSE",
           text2: "01/07/2022, 15/07/2022 en 22/07/2022",
