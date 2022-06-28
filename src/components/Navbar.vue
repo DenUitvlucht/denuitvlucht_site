@@ -156,12 +156,6 @@ export default {
         url: "",
       },
       {
-        text: "Dj Contest",
-        icon: "mdi-music",
-        routerdestination: "/djcontest",
-        url: "",
-      },
-      {
         text: "Word lid",
         icon: "mdi-account-heart",
         routerdestination: "",
