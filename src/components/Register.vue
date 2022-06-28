@@ -297,7 +297,7 @@ export default {
     const errMsg = ref("");
     const actionCodeSettings = {
       //moet nog aangepast worden!
-      url: "https://www.denuitvlucht.com/djcontest",
+      url: "https://denuitvlucht.com/djcontest",
       handleCodeInApp: true,
     };
 
