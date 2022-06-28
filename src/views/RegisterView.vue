@@ -1,5 +1,5 @@
 <template>
-  <div class='register' style='margin-top: 10px'>
+  <div class='djcontest' style='margin-top: 10px'>
     <Register></Register>
   </div>
 

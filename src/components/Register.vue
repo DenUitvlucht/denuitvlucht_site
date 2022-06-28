@@ -13,12 +13,10 @@
           <p class="text-h6 mb-3 text-secondary">
             Verifieer jezelf en stem voor je favoriete DJ!
           </p>
-                <v-img
+          <v-img
             src="images/events/djcontest.png"
             class="white--text align-end mb-5"
-           
             cover
-            
           ></v-img>
           <div class="text-secondary">
             Vul hieronder uw e-mailadres in. Binnen enkele seconden ontvang je
@@ -94,13 +92,11 @@
         :elevation="isHovering ? 12 : 2"
         v-bind="props"
       >
-        
         <v-card-text v-if="verified === 'false'">
           <p class="text-h6 mb-3 text-secondary">
             Verifieer jezelf en stem voor je favoriete DJ!
           </p>
-          
-          
+
           <div class="text-secondary">
             <div class="text-secondary">
               Er is een verificatie e-mail verzonden naar:
@@ -108,8 +104,7 @@
               >.
             </div>
             <div class="text-secondary">
-              <span class="font-weight-black">Check zeker je spamfolder!</span
-              >
+              <span class="font-weight-black">Check zeker je spamfolder!</span>
             </div>
             <br />
             <div class="text-secondary">
@@ -172,9 +167,54 @@
           </div>
           <v-divider class="mb-3 mt-3"></v-divider>
           <v-radio-group v-model="selectedOptionId">
-            <v-radio label="DJ Taart" value="DJ Taart" />
-            <v-radio label="DJ Viking" value="DJ Viking" />
-            <v-radio label="DJ verloren zoon" value="DJ De Verloren Zoon" />
+            <v-radio value="KOBE">
+              <template v-slot:label>
+                <div>
+                  <strong class="success--text">KOBE</strong>
+                  &ensp; | 20u00 - 20u45 |
+                </div>
+              </template>
+            </v-radio>
+            <v-radio value="Eye-xpress">
+              <template v-slot:label>
+                <div>
+                  <strong class="success--text">Eye-xpress</strong>
+                  &ensp; | 20u45 - 21u30 |
+                </div>
+              </template>
+            </v-radio>
+            <v-radio value="DJ Icon">
+              <template v-slot:label>
+                <div>
+                  <strong class="success--text">DJ Icon</strong>
+                  &ensp; | 21u30 - 22u15 |
+                </div>
+              </template>
+            </v-radio>
+            <v-radio value="DJ MaVer">
+              <template v-slot:label>
+                <div>
+                  <strong class="success--text">DJ MaVer</strong>
+                  &ensp; | 22u15 - 23u00 |
+                </div>
+              </template>
+            </v-radio>
+            <v-radio value="C-Mix">
+              <template v-slot:label>
+                <div>
+                  <strong class="success--text">C-Mix</strong>
+                  &ensp; | 23u00 - 23u45 |
+                </div>
+              </template>
+            </v-radio>
+            <v-radio value="Fkartist">
+              <template v-slot:label>
+                <div>
+                  <strong class="success--text">Fkartist</strong>
+                  &ensp; | 23u45 - 00u30 |
+                </div>
+              </template>
+            </v-radio>
           </v-radio-group>
           <div class="mb-3">
             <v-btn
@@ -188,7 +228,7 @@
             >
               STEM
             </v-btn>
-            <v-btn @click="resetAll()" color="buttontext" class="bg-buttonbg">
+            <v-btn @click="resetAll()" color="black" class="bg-buttonbg">
               AFMELDEN
             </v-btn>
           </div>
@@ -257,7 +297,7 @@ export default {
     const errMsg = ref("");
     const actionCodeSettings = {
       //moet nog aangepast worden!
-      url: "https://denuitvlucht.com/djcontest",
+      url: "https://www.denuitvlucht.com/djcontest",
       handleCodeInApp: true,
     };
 

@@ -18,14 +18,14 @@
       >
         <p class="my-2">{{ item.text }}</p>
         <v-btn
-          :href="item.website"
-          target="_blank"
+          @click="$router.push('/djcontest')"
+          
           class=""
           color="alert"
           variant="outlined"
         >
         <v-icon start :icon="item.icon"></v-icon>
-          MEER INFO
+          STEM NU
         </v-btn>
       </v-alert>
     </div>
@@ -166,10 +166,9 @@ export default {
       alerts: [
         {
           titel: "DJ CONTEST - WAREGEM KOERSE",
-          text: "Schrijf je nu in en maak kans om te draaien op Waregem Koerse 2022!",
-          website: "https://www.facebook.com/events/337703575096356",
+          text: "De preselecties zijn van start gegaan! Stem vanaf nu op jouw favoriete DJ!",
           status: true,
-          icon: 'mdi-facebook'
+          icon: 'mdi-music'
         },
       ],
       alerts2: [
