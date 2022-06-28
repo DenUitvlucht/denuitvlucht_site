@@ -150,15 +150,15 @@ export default {
     algemeen: [
       { text: "Home", icon: "mdi-home", routerdestination: "/", url: "" },
       {
-        text: "Dj Contest",
-        icon: "mdi-music",
-        routerdestination: "/djcontest",
-        url: "",
-      },
-      {
         text: "Over Ons",
         icon: "mdi-information",
         routerdestination: "/overons",
+        url: "",
+      },
+      {
+        text: "Dj Contest",
+        icon: "mdi-music",
+        routerdestination: "/djcontest",
         url: "",
       },
       {
