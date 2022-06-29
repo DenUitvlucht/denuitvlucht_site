@@ -38,6 +38,7 @@
               ?
             </div>
             <v-checkbox
+              
               v-model="checkbox"
               :rules="[
                 (v) => !!v || 'Je moet akkoord gaan om verder te kunnen!',
@@ -297,16 +298,9 @@ export default {
     const errMsg = ref("");
     const actionCodeSettings = {
       //moet nog aangepast worden!
-      url: "https://www.denuitvlucht.com/djcontest",
+      url: "http://www.denuitvlucht.com/djcontest",
       handleCodeInApp: true,
     };
-
-    if (auth.currentUser) {
-      const starCountRef = ref(database, "users/" + auth.currentUser.uid);
-      onValue(starCountRef, (snapshot) => {
-        const data = snapshot.val();
-      });
-    }
 
     if (isSignInWithEmailLink(auth, window.location.href)) {
       let email = window.localStorage.getItem("emailForSignIn");
@@ -318,13 +312,13 @@ export default {
         window.localStorage.setItem("registered", true);
         router.go();
       } else {
-        console.log("goed");
+       
         signInWithEmailLink(auth, email, window.location.href)
           .then((result) => {
             //window.localStorage.removeItem('emailForSignIn')
-            console.log("bruh");
+            
             verify();
-            test += 1;
+            //test += 1;
           })
           .catch();
         router.replace("/djcontest");
@@ -409,7 +403,7 @@ export default {
     ],
   }),
   mounted() {
-    console.log(this.verified);
+    
   },
 };
 </script>
