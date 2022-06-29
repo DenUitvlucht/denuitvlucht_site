@@ -38,7 +38,6 @@
               ?
             </div>
             <v-checkbox
-              
               v-model="checkbox"
               :rules="[
                 (v) => !!v || 'Je moet akkoord gaan om verder te kunnen!',
@@ -76,8 +75,15 @@
               <span class="font-weight-black">{{ emailToShow }}</span
               >.
             </div>
+            <div class="text-secondary mb-3">
+              Hieronder een voorbeeld van de e-mail die je zal krijgen:
+            </div>
+            <v-img
+              src="images/events/emailconfirm/example.png"
+              class="white--text align-end mb-5"
+              cover
+            ></v-img>
           </v-card-text>
-
           <v-card-actions>
             <v-btn color="buttontext" block @click="dialog2 = false"
               >Sluiten</v-btn
@@ -168,10 +174,10 @@
           </div>
           <v-divider class="mb-3 mt-3"></v-divider>
           <v-radio-group v-model="selectedOptionId">
-            <v-radio value="KOBE">
+            <v-radio value="DJ Icon">
               <template v-slot:label>
                 <div>
-                  <strong class="success--text">KOBE</strong>
+                  <strong class="success--text">DJ Icon</strong>
                   &ensp; | 20u00 - 20u45 |
                 </div>
               </template>
@@ -184,10 +190,10 @@
                 </div>
               </template>
             </v-radio>
-            <v-radio value="DJ Icon">
+            <v-radio value="DJ Beenespe">
               <template v-slot:label>
                 <div>
-                  <strong class="success--text">DJ Icon</strong>
+                  <strong class="success--text">DJ Beenespe</strong>
                   &ensp; | 21u30 - 22u15 |
                 </div>
               </template>
@@ -298,7 +304,7 @@ export default {
     const errMsg = ref("");
     const actionCodeSettings = {
       //moet nog aangepast worden!
-      url: "http://www.denuitvlucht.com/djcontest",
+      url: "https://www.denuitvlucht.com/djcontest",
       handleCodeInApp: true,
     };
 
@@ -306,17 +312,16 @@ export default {
       let email = window.localStorage.getItem("emailForSignIn");
       if (!email) {
         email = window.prompt(
-          "Oeps, je opent deze pagina waarschijnlijk in de verkeerde browser! Geen probleem, vul hieronder je e-mailadres en we sturen je direct naar de stempagina."
+          "Oeps, je opent deze pagina waarschijnlijk in de verkeerde browser, of je gebruikt Safari! Geen probleem, vul hieronder je e-mailadres en we sturen je direct naar de stempagina."
         );
         window.localStorage.setItem("emailForSignIn", email);
         window.localStorage.setItem("registered", true);
         router.go();
       } else {
-       
         signInWithEmailLink(auth, email, window.location.href)
           .then((result) => {
             //window.localStorage.removeItem('emailForSignIn')
-            
+
             verify();
             //test += 1;
           })
@@ -402,8 +407,6 @@ export default {
       (v) => /.+@.+/.test(v) || "Deze e-mail is niet geldig!",
     ],
   }),
-  mounted() {
-    
-  },
+  mounted() {},
 };
 </script>
