@@ -13,6 +13,7 @@
     "@mdi/font": "^5.9.55",
     "@vue/compiler-sfc": "^3.2.36",
     "body-scroll-lock": "^4.0.0-beta.0",
+    "chart.js": "^3.8.0",
     "firebase": "^9.8.2",
     "js-base64": "^3.7.2",
     "roboto-fontface": "*",
@@ -23,6 +24,7 @@
     "webpack": "^5.72.1"
   },
   "devDependencies": {
+    "@types/chart.js": "^2.9.37",
     "@vitejs/plugin-vue": "^2.3.3",
     "@vue/cli-plugin-router": "~5.0.4",
     "@vue/cli-service": "^5.0.4",
