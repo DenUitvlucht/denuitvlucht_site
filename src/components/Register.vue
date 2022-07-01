@@ -174,14 +174,6 @@
           </div>
           <v-divider class="mb-3 mt-3"></v-divider>
           <v-radio-group v-model="selectedOptionId">
-            <v-radio value="DJ Icon">
-              <template v-slot:label>
-                <div>
-                  <strong class="success--text">DJ Icon</strong>
-                  &ensp; | 20u00 - 20u45 |
-                </div>
-              </template>
-            </v-radio>
             <v-radio value="Eye-xpress">
               <template v-slot:label>
                 <div>
@@ -224,6 +216,9 @@
             </v-radio>
           </v-radio-group>
           <div class="mb-3">
+            <v-btn @click="resetAll()" color="black" class="bg-buttonbg  mr-3">
+              AFMELDEN
+            </v-btn>
             <v-btn
               @click="
                 safeVote(selectedOptionId),
@@ -231,12 +226,9 @@
                   (lastVote = selectedOptionId)
               "
               color="buttontext"
-              class="bg-buttonbg mr-3"
+              class="bg-buttonbg"
             >
               STEM
-            </v-btn>
-            <v-btn @click="resetAll()" color="black" class="bg-buttonbg">
-              AFMELDEN
             </v-btn>
           </div>
 

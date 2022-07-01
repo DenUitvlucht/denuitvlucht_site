@@ -4,6 +4,12 @@
     <v-card color="card" class="mx-auto mt-1 mb-5" max-width="1000" :elevation="isHovering ? 12 : 2" v-bind="props">
       <v-card-text>
         <p class="text-h6 mb-3 text-secondary">Live-resultaten</p>
+      </v-card-text>
+    </v-card>
+    </v-hover>
+    <v-hover v-slot="{ isHovering, props }">
+    <v-card color="card" class="mx-auto mt-1 mb-5" max-width="1000" :elevation="isHovering ? 12 : 2" v-bind="props">
+      <v-card-text>
         <div id="data"></div>
         <br />
         <div class="mx-auto" id="chart" style="width:500px ">
@@ -116,7 +122,7 @@ function fixHtmlCodeFromResult() {
     var p = document.createElement('p')
     p.setAttribute('class', 'font-weight-black')
     p.setAttribute('class', 'text-h6')
-    var text = document.createTextNode(element.value + " heeft momenteel " + element.aantal + " stemmen")
+    var text = document.createTextNode(element.value + " heeft momenteel " + element.aantal + " stem(men)")
     p.appendChild(text)
     data.appendChild(p)
   });
