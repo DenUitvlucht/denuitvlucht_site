@@ -77,6 +77,17 @@ export default {
   data: () => ({
     cards: [
       {
+        title: "TUINIES @DENUITVLUCHT",
+        datum: "Elke maandag vanaf 11/07",
+        image: "/images/events/tuinies2022.png",
+        flex: 12,
+        tickets: true,
+        inschrijven: false,
+        infolink: "https://www.facebook.com/events/334917888838445",
+        inschrijvenlink: "",
+        ticketlink: "",
+      },
+      {
         title: "DJ CONTEST - WAREGEM KOERSE",
         datum: "01/07/2022, 15/07/2022 en 22/07/2022",
         image: "/images/events/djcontest.png",

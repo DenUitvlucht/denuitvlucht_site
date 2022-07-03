@@ -19,12 +19,11 @@
         <p class="my-2">{{ item.text }}</p>
         <v-btn
           @click="$router.push('/djcontest')"
-          
           class=""
           color="alert"
           variant="outlined"
         >
-        <v-icon start :icon="item.icon"></v-icon>
+          <v-icon start :icon="item.icon"></v-icon>
           STEM NU
         </v-btn>
       </v-alert>
@@ -168,7 +167,7 @@ export default {
           titel: "DJ CONTEST - WAREGEM KOERSE",
           text: "De preselecties zijn van start gegaan! Stem vanaf nu op jouw favoriete DJ!",
           status: true,
-          icon: 'mdi-music'
+          icon: "mdi-music",
         },
       ],
       alerts2: [
@@ -181,6 +180,9 @@ export default {
       ],
       fotos: [
         {
+          src: "/images/events/tuinies2022.png",
+        },
+        {
           src: "/images/events/djcontest.png",
         },
       ],
@@ -191,6 +193,11 @@ export default {
         { text: "Zondag", text2: "16:00 - 20:00" },
       ],
       kalender: [
+        {
+          text: "TUINIES @DENUITVLUCHT",
+          text2: "Elke maandag vanaf 11/07",
+          icon: "mdi-disc",
+        },
         {
           text: "DJ CONTEST - WAREGEM KOERSE",
           text2: "01/07/2022, 15/07/2022 en 22/07/2022",
