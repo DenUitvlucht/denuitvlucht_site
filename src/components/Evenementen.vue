@@ -78,7 +78,7 @@ export default {
     cards: [
       {
         title: "TUINIES @DENUITVLUCHT",
-        datum: "Elke maandag vanaf 11/07",
+        datum: "Elke maandag vanaf 04/07",
         image: "/images/events/tuinies2022.png",
         flex: 12,
         tickets: true,

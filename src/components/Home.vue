@@ -195,7 +195,7 @@ export default {
       kalender: [
         {
           text: "TUINIES @DENUITVLUCHT",
-          text2: "Elke maandag vanaf 11/07",
+          text2: "Elke maandag vanaf 04/07",
           icon: "mdi-disc",
         },
         {
