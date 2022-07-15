@@ -174,43 +174,35 @@
           </div>
           <v-divider class="mb-3 mt-3"></v-divider>
           <v-radio-group v-model="selectedOptionId">
-            <v-radio value="Eye-xpress">
+            <v-radio value="EVE">
               <template v-slot:label>
                 <div>
-                  <strong class="success--text">Eye-xpress</strong>
+                  <strong class="success--text">EVE</strong>
                   &ensp; | 20u45 - 21u30 |
                 </div>
               </template>
             </v-radio>
-            <v-radio value="DJ Beenespe">
+            <v-radio value="O-Beats">
               <template v-slot:label>
                 <div>
-                  <strong class="success--text">DJ Beenespe</strong>
+                  <strong class="success--text">O-Beats</strong>
                   &ensp; | 21u30 - 22u15 |
                 </div>
               </template>
             </v-radio>
-            <v-radio value="DJ MaVer">
+            <v-radio value="Verloren zoon">
               <template v-slot:label>
                 <div>
-                  <strong class="success--text">DJ MaVer</strong>
+                  <strong class="success--text">Verloren zoon</strong>
                   &ensp; | 22u15 - 23u00 |
                 </div>
               </template>
             </v-radio>
-            <v-radio value="C-Mix">
+            <v-radio value="Miles b2b Tizzix">
               <template v-slot:label>
                 <div>
-                  <strong class="success--text">C-Mix</strong>
+                  <strong class="success--text">Miles b2b Tizzix</strong>
                   &ensp; | 23u00 - 23u45 |
-                </div>
-              </template>
-            </v-radio>
-            <v-radio value="Fkartist">
-              <template v-slot:label>
-                <div>
-                  <strong class="success--text">Fkartist</strong>
-                  &ensp; | 23u45 - 00u30 |
                 </div>
               </template>
             </v-radio>
