@@ -174,10 +174,10 @@
           </div>
           <v-divider class="mb-3 mt-3"></v-divider>
           <v-radio-group v-model="selectedOptionId">
-            <v-radio value="EVE">
+            <v-radio value="MAXIM">
               <template v-slot:label>
                 <div>
-                  <strong class="success--text">EVE</strong>
+                  <strong class="success--text">MAXIM</strong>
                   &ensp; | 20u45 - 21u30 |
                 </div>
               </template>
@@ -203,6 +203,14 @@
                 <div>
                   <strong class="success--text">Miles b2b Tizzix</strong>
                   &ensp; | 23u00 - 23u45 |
+                </div>
+              </template>
+            </v-radio>
+             <v-radio value="FCKARTIST">
+              <template v-slot:label>
+                <div>
+                  <strong class="success--text">FCKARTIST</strong>
+                  &ensp; | 23u45 - 00u30 |
                 </div>
               </template>
             </v-radio>
