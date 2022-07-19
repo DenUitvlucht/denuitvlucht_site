@@ -25,6 +25,11 @@
 <script>
 import { getDatabase, ref, query, onValue, child } from "firebase/database";
 import {
+  getAuth,
+  isSignInWithEmailLink,
+  signInWithEmailLink
+} from "firebase/auth";
+import {
   Chart,
   ArcElement,
   LineElement,
@@ -79,13 +84,18 @@ Chart.register(
   SubTitle
 );
 
-const db = getDatabase();
-const starCountRef = ref(db, 'users');
-let result = []
-onValue(starCountRef, (snapshot) => {
-  let test = snapshot.val()
-  UpdateVisualLisatie(test)
-});
+const auth = getAuth();
+
+if (auth.currentUser) {
+  const db = getDatabase();
+  const starCountRef = ref(db, 'users');
+  let result = []
+  
+  onValue(starCountRef, (snapshot) => {
+    let test = snapshot.val()
+    UpdateVisualLisatie(test)
+  });
+}
 
 function UpdateVisualLisatie(data) {
   var array = dataToArray(data)

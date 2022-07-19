@@ -296,7 +296,7 @@ export default {
     const errMsg = ref("");
     const actionCodeSettings = {
       //moet nog aangepast worden!
-      url: "https://www.denuitvlucht.com/djcontest",
+      url: "http://localhost:4000/djcontest",
       handleCodeInApp: true,
     };
 
@@ -325,7 +325,6 @@ export default {
     const safeVote = (voteValue) => {
       if (voteValue) {
         set(firebaseref(database, "users/" + auth.currentUser.uid), {
-          email: auth.currentUser.email,
           vote: voteValue,
         });
         vote(voteValue);

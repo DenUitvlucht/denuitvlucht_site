@@ -1,5 +1,10 @@
 import { ref } from "vue";
+import {
+    getAuth,
+    signOut
+  } from "firebase/auth";
 
+let auth = getAuth()
 
 export const defaultValues = () => {
 
@@ -68,9 +73,9 @@ export const resetAll = () => {
     voted.value = 'false'
     verified.value = 'false'
     registered.value = 'false'
+    signOut(auth)
     
 }
-
 
 export let verified = ref(defaultValues()[0])
 export let registered = ref(defaultValues()[1])
