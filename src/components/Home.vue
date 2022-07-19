@@ -165,7 +165,7 @@ export default {
       alerts: [
         {
           titel: "DJ CONTEST - WAREGEM KOERSE",
-          text: "De preselecties zijn van start gegaan! Stem vanaf nu op jouw favoriete DJ!",
+          text: "Tijd voor de finale! Stem vanaf nu op jouw favoriete finalist!",
           status: true,
           icon: "mdi-music",
         },
