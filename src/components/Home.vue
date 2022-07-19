@@ -164,7 +164,7 @@ export default {
       theme,
       alerts: [
         {
-          titel: "DJ CONTEST - WAREGEM KOERSE",
+          titel: "DJ CONTEST - WAREGEM KOERSE - FINALE",
           text: "Tijd voor de finale! Stem vanaf nu op jouw favoriete finalist!",
           status: true,
           icon: "mdi-music",
