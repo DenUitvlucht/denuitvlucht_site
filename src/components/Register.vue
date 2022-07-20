@@ -174,11 +174,11 @@
           </div>
           <v-divider class="mb-3 mt-3"></v-divider>
           <v-radio-group v-model="selectedOptionId">
-            <v-radio value="MAXIM">
+            <v-radio value="C-Mix">
               <template v-slot:label>
                 <div>
-                  <strong class="success--text">MAXIM</strong>
-                  &ensp; | 20u45 - 21u30 |
+                  <strong class="success--text">C-Mix</strong>
+                  &ensp; | 21u - 22u |
                 </div>
               </template>
             </v-radio>
@@ -186,15 +186,15 @@
               <template v-slot:label>
                 <div>
                   <strong class="success--text">O-Beats</strong>
-                  &ensp; | 21u30 - 22u15 |
+                  &ensp; | 22u - 23u |
                 </div>
               </template>
             </v-radio>
-            <v-radio value="Verloren zoon">
+            <v-radio value="MaVer">
               <template v-slot:label>
                 <div>
-                  <strong class="success--text">Verloren zoon</strong>
-                  &ensp; | 22u15 - 23u00 |
+                  <strong class="success--text">MaVer</strong>
+                  &ensp; | 23u - 00u |
                 </div>
               </template>
             </v-radio>
@@ -202,15 +202,7 @@
               <template v-slot:label>
                 <div>
                   <strong class="success--text">Miles b2b Tizzix</strong>
-                  &ensp; | 23u00 - 23u45 |
-                </div>
-              </template>
-            </v-radio>
-             <v-radio value="FCKARTIST">
-              <template v-slot:label>
-                <div>
-                  <strong class="success--text">FCKARTIST</strong>
-                  &ensp; | 23u45 - 00u30 |
+                  &ensp; | 00u - 01u |
                 </div>
               </template>
             </v-radio>
