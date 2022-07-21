@@ -214,7 +214,6 @@
             <v-btn
               @click="
                 safeVote(selectedOptionId),
-                  (dialog = true),
                   (lastVote = selectedOptionId)
               "
               color="buttontext"
@@ -243,6 +242,19 @@
           </v-card-actions>
         </v-card>
       </v-dialog>
+      <v-dialog v-model="invalidauth" persistent>
+        <v-card color="card">
+          <v-card-text>
+            <div class="text-secondary">Oeps, je verificatie is verlopen. Log opnieuw in met je e-mail!</div>
+          </v-card-text>
+
+          <v-card-actions>
+            <v-btn color="buttontext" block @click="resetAll(), invalidauth = false"
+              >Opnieuw inloggen</v-btn
+            >
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
     </v-hover>
   </v-container>
 </template>
@@ -263,6 +275,7 @@ import {
   set,
   ref as firebaseref,
 } from "firebase/database";
+
 import {
   verified,
   registered,
@@ -274,6 +287,9 @@ import {
   lastVote,
   resetRegister,
   resetAll,
+  invalid,
+  invalidauth,
+  dialog
 } from "../composables/poll.ts";
 
 export default {
@@ -288,9 +304,10 @@ export default {
     const errMsg = ref("");
     const actionCodeSettings = {
       //moet nog aangepast worden!
-      url: "https://www.denuitvlucht.com/djcontest",
+      url: "http://localhost:4000/djcontest",
       handleCodeInApp: true,
     };
+
 
     if (isSignInWithEmailLink(auth, window.location.href)) {
       let email = window.localStorage.getItem("emailForSignIn");
@@ -305,7 +322,7 @@ export default {
         signInWithEmailLink(auth, email, window.location.href)
           .then((result) => {
             //window.localStorage.removeItem('emailForSignIn')
-
+            console.log(auth)
             verify();
             //test += 1;
           })
@@ -316,11 +333,20 @@ export default {
 
     const safeVote = (voteValue) => {
       if (voteValue) {
-        set(firebaseref(database, "users/" + auth.currentUser.uid), {
-          vote: voteValue,
-        });
-        vote(voteValue);
-      } else {
+        try{
+
+          set(firebaseref(database, "users/" + auth.currentUser.uid), {
+            vote: voteValue,
+          });
+          vote(voteValue);
+        }
+        catch (error) {
+          // User auth is invalid, force re-verification
+          invalid()
+          
+        }
+      } 
+      else {
         alert("selecteer een favoriete dj!");
       }
     };
@@ -336,6 +362,7 @@ export default {
         .catch((error) => {
           isLoading.value = false;
           switch (error.code) {
+            
             case "auth/invalid-email":
               errMsg.value = "The email address is badly formatted.";
               break;
@@ -370,9 +397,13 @@ export default {
       voted,
       resetRegister,
       resetAll,
+      invalid,
+      invalidauth,
+      dialog
     };
   },
   data: () => ({
+    reverify: false,
     dialog2: false,
     test: 0,
     page: 0,
@@ -390,6 +421,9 @@ export default {
       (v) => /.+@.+/.test(v) || "Deze e-mail is niet geldig!",
     ],
   }),
-  mounted() {},
+  mounted(){
+
+  }
+
 };
 </script>

@@ -24,6 +24,8 @@ export const defaultValues = () => {
         localStorage.setItem('voted', 'false')
     }
 
+    
+
 
     return [localStorage.getItem('verified').toString(), localStorage.getItem('registered').toString(), localStorage.getItem('voted').toString()]
 }
@@ -52,6 +54,7 @@ export const verify = () => {
 export const vote = (voteValue) => {
 
     voted.value = 'true'
+    dialog.value = true
     window.localStorage.setItem('voted', 'true')
     window.localStorage.setItem('lastVote', voteValue)
 }
@@ -63,6 +66,13 @@ export const resetRegister = () => {
     registered.value = 'false'
 }
 
+export const invalid = () => {
+
+    invalidauth.value = true
+    localStorage.setItem('invalid', 'true')
+
+}
+
 export const resetAll = () => {
 
     window.localStorage.removeItem("emailForSignIn");
@@ -70,9 +80,11 @@ export const resetAll = () => {
     window.localStorage.removeItem("verified");
     window.localStorage.removeItem("voted");
     window.localStorage.removeItem("lastVote");
+    window.localStorage.removeItem("invalid");
     voted.value = 'false'
     verified.value = 'false'
     registered.value = 'false'
+    invalidauth = ref(false)
     signOut(auth)
     
 }
@@ -82,6 +94,8 @@ export let registered = ref(defaultValues()[1])
 export let voted = ref(defaultValues()[2])
 export let emailToShow = getEmail()
 export let lastVote = getLastVote()
+export let invalidauth = ref(false)
+export let dialog = ref(false)
 
 
 
