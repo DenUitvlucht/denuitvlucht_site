@@ -304,7 +304,7 @@ export default {
     const errMsg = ref("");
     const actionCodeSettings = {
       //moet nog aangepast worden!
-      url: "http://localhost:4000/djcontest",
+      url: "https://www.denuitvlucht.com/djcontest",
       handleCodeInApp: true,
     };
 
