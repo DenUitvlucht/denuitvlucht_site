@@ -18,13 +18,13 @@
       >
         <p class="my-2">{{ item.text }}</p>
         <v-btn
-          @click="$router.push('/djcontest')"
+          href="mailto:denuitvlucht@gmail.com"
           class=""
           color="alert"
           variant="outlined"
         >
           <v-icon start :icon="item.icon"></v-icon>
-          STEM NU
+          MAIL ONS
         </v-btn>
       </v-alert>
     </div>
@@ -164,10 +164,10 @@ export default {
       theme,
       alerts: [
         {
-          titel: "DJ CONTEST - WAREGEM KOERSE - FINALE",
-          text: "Tijd voor de finale! Stem vanaf nu op jouw favoriete finalist!",
+          titel: "Waregem Koerse 2022 vrijwilligers",
+          text: "Zin om ons te helpen tijdens Waregem Koerse?",
           status: true,
-          icon: "mdi-music",
+          icon: "mdi-account-hard-hat",
         },
       ],
       alerts2: [
@@ -181,9 +181,6 @@ export default {
       fotos: [
         {
           src: "/images/events/tuinies2022.png",
-        },
-        {
-          src: "/images/events/djcontest.png",
         },
       ],
       openingsuren: [
@@ -199,9 +196,9 @@ export default {
           icon: "mdi-disc",
         },
         {
-          text: "DJ CONTEST - WAREGEM KOERSE",
-          text2: "01/07/2022, 15/07/2022 en 22/07/2022",
-          icon: "mdi-disc",
+          text: "WAREGEM KOERSE",
+          text2: "26/08/2022, 27/08/2022, 29/08/2022 en 30/08/2022",
+          icon: "mdi-party-popper",
         },
       ],
     };

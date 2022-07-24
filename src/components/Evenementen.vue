@@ -87,17 +87,7 @@ export default {
         inschrijvenlink: "",
         ticketlink: "",
       },
-      {
-        title: "DJ CONTEST - WAREGEM KOERSE",
-        datum: "01/07/2022, 15/07/2022 en 22/07/2022",
-        image: "/images/events/djcontest.png",
-        flex: 12,
-        tickets: true,
-        inschrijven: false,
-        infolink: "https://www.facebook.com/events/337703575096356",
-        inschrijvenlink: "https://forms.gle/fJ7BiNwZCUqpX8Pn6",
-        ticketlink: "",
-      },
+      
     ],
   }),
 };
